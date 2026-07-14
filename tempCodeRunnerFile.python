@@ -1,0 +1,40 @@
+# Simple Stroke Risk Output Model
+
+heart_rate = 122
+spo2 = 89
+temperature = 37.8
+gait_instability = True
+ecg_abnormal = True
+
+risk_score = 0
+
+if heart_rate > 110 or heart_rate < 50:
+    risk_score += 2
+
+if spo2 < 92:
+    risk_score += 2
+
+if temperature > 38:
+    risk_score += 1
+
+if gait_instability:
+    risk_score += 2
+
+if ecg_abnormal:
+    risk_score += 3
+
+if risk_score >= 6:
+    result = "HIGH RISK"
+elif risk_score >= 3:
+    result = "MEDIUM RISK"
+else:
+    result = "LOW RISK"
+
+print("Stroke Risk Prediction Result")
+print("-----------------------------")
+print("Heart Rate:", heart_rate)
+print("SpO2:", spo2)
+print("Temperature:", temperature)
+print("Gait Instability:", gait_instability)
+print("ECG Abnormal:", ecg_abnormal)
+print("Final Risk Level:", result)

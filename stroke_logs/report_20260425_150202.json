@@ -1,0 +1,53 @@
+{
+  "timestamp": "20260425_150202",
+  "session_uptime_sec": 657,
+  "risk_score": 72,
+  "risk_level": "HIGH RISK",
+  "alert_count": 2,
+  "raw_features": {
+    "mouth": 0.121857,
+    "eye": 0.0,
+    "tilt": 23.555105,
+    "brow": 0.074132,
+    "cheek": 0.098077,
+    "rigid": 0.0,
+    "arm": 1.986714
+  },
+  "smoothed_features": {
+    "mouth": 0.117266,
+    "eye": 0.0148,
+    "tilt": 22.134285,
+    "brow": 0.090203,
+    "cheek": 0.130929,
+    "rigid": 0.000391,
+    "arm": 1.734665
+  },
+  "feature_scores": {
+    "mouth": 1.0,
+    "eye": 0.1555,
+    "tilt": 0.809,
+    "brow": 1.0,
+    "cheek": 1.0,
+    "rigid": 0.0,
+    "arm": 1.0
+  },
+  "feature_weights": {
+    "mouth": 15,
+    "eye": 8,
+    "tilt": 8,
+    "brow": 5,
+    "cheek": 5,
+    "rigid": 4,
+    "arm": 40
+  },
+  "thresholds": {
+    "mouth": 0.03,
+    "eye": 0.012,
+    "tilt": 10.0,
+    "brow": 0.022,
+    "cheek": 0.015,
+    "rigid": 0.008,
+    "arm": 0.12
+  },
+  "paper_reference": "Ahmad et al., IJ-AI Vol.13 No.1, 2024, DOI:10.11591/ijai.v13.i1.pp933-940"
+}
