@@ -162,18 +162,9 @@ The application provides:
 - Eye gaze analysis
 - Temporal CNN prediction smoothing
 
----
-
-## Author
-
-**Bipul Kumar**
-
-Computer Science Engineering (AI & ML)
-
-Sahyadri College of Engineering & Management
 
 ---
 
 ## License
 
-This project is developed for academic and research purposes.
+This project is developed for academic and research purposes.Its not for Medical Purposes
