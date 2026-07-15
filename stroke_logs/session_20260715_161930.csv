@@ -1,0 +1,2 @@
+timestamp,frame,risk,mouth,eye,tilt,brow,cheek,rigid,arm,alert_active,face_detected,pose_detected,fps
+2026-07-15T16:19:30.641902,0,0,0.0,0.0,0.070315,0.000513,0.001036,0.0,0.051473,0,1,1,0.2
