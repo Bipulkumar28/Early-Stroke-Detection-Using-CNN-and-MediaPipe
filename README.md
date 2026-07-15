@@ -1,195 +1,179 @@
-# 🧠 AI-Based Stroke Risk Detection using Facial and Pose Analysis
+# Early Stroke Detection Using CNN and MediaPipe
 
-A real-time computer vision application that analyzes facial landmarks and body posture to identify early signs associated with stroke. The system uses AI-based facial and pose analysis to estimate stroke risk and displays live analytics through an interactive dashboard.
+## Overview
 
----
+Early Stroke Detection Using CNN and MediaPipe is a real-time AI-powered system that assists in identifying potential stroke symptoms using a standard webcam.
 
-## 📌 Overview
+The system combines deep learning and computer vision techniques to analyze facial expressions, head posture, facial asymmetry, and upper-body movements. A Convolutional Neural Network (CNN) classifies facial images as Stroke or No Stroke, while MediaPipe extracts facial and pose landmarks to evaluate clinical indicators such as head tilt, mouth droop, eye asymmetry, and arm weakness.
 
-This project is a prototype for early stroke risk detection using a standard webcam. It continuously monitors facial symmetry and upper-body posture to identify potential stroke indicators such as facial drooping, head tilt, and arm weakness.
+Both outputs are fused to generate a final stroke risk score that is displayed through a real-time dashboard.
 
-The processed data is visualized on a live analytics dashboard, making it easier to monitor the detection results in real time.
-
----
-
-## ✨ Features
-
-- 🎥 Real-time webcam monitoring
-- 😀 Face landmark detection
-- 🧍 Pose landmark detection
-- 📐 Facial asymmetry analysis
-- 📉 Head tilt detection
-- 💪 Arm weakness estimation
-- 📊 Stroke risk score calculation
-- 📈 Live analytics dashboard
-- 📝 CSV report generation
-- 📄 JSON report generation
+> **Note:** This project is intended for educational and research purposes only. It is **not a medical diagnostic device** and should not be used as a substitute for professional medical advice.
 
 ---
 
-## 🛠 Tech Stack
+## Features
 
-### Frontend
-- React
-- TypeScript
-- Tailwind CSS
+- Real-time webcam monitoring
+- CNN-based facial stroke classification
+- MediaPipe Face Landmark Detection
+- MediaPipe Pose Detection
+- Head tilt analysis
+- Mouth droop detection
+- Eye asymmetry detection
+- Brow asymmetry detection
+- Cheek asymmetry detection
+- Arm weakness detection
+- Hybrid AI + Rule-Based Risk Fusion
+- Live Stroke Risk Dashboard
+- Session logging (CSV)
+- JSON report generation
+- Automatic alert system
+- Snapshot capture
+- Voice alerts (Text-to-Speech)
 
-### Backend
-- Flask
-- Flask-CORS
+---
 
-### AI / Computer Vision
+## System Architecture
+
+```
+                   Webcam
+                      │
+                      ▼
+                 OpenCV Camera
+                      │
+        ┌─────────────┴─────────────┐
+        │                           │
+        ▼                           ▼
+ MediaPipe Face & Pose         CNN Model
+        │                           │
+        ▼                           ▼
+ Clinical Features        Stroke Probability
+        │                           │
+        └─────────────┬─────────────┘
+                      ▼
+              Decision Fusion
+                      ▼
+             Final Stroke Risk
+                      ▼
+              Dashboard & Alerts
+```
+
+---
+
+## Technologies Used
+
 - Python
 - OpenCV
+- TensorFlow / Keras
 - MediaPipe
 - NumPy
-- Pandas
+- pyttsx3
 
 ---
 
-## 📂 Project Structure
+## Stroke Indicators Analysed
 
-```text
-Stroke-Detection/
+- Head Tilt
+- Mouth Droop
+- Eye Asymmetry
+- Brow Asymmetry
+- Cheek Asymmetry
+- Facial Rigidity
+- Arm Weakness
+- CNN Facial Classification
+
+---
+
+## Project Structure
+
+```
+Early-Stroke-Detection-Using-CNN-and-MediaPipe
 │
-├── backend.py
 ├── stroke_detector.py
-├── dashboard/
-│   ├── src/
-│   ├── public/
-│   └── package.json
-│
-├── stroke_logs/
-├── reports/
-└── README.md
+├── train_model.ipynb
+├── requirements.txt
+├── README.md
+├── screenshots/
+└── .gitignore
 ```
 
 ---
 
-## ⚙️ System Workflow
+## Installation
 
-```text
-Webcam
-   │
-   ▼
-Face & Pose Detection
-   │
-   ▼
-Feature Extraction
-   │
-   ▼
-Stroke Risk Calculation
-   │
-   ▼
-CSV / JSON Logging
-   │
-   ▼
-Flask Backend API
-   │
-   ▼
-React Dashboard
-```
-
----
-
-## 📊 Dashboard
-
-The dashboard displays live analytics including:
-
-- Current Stroke Risk
-- Risk Level
-- Live Risk Trend
-- Feature Contribution
-- Risk Meter
-- System Status
-- FPS
-- Camera Status
-
----
-
-## ▶️ Installation
-
-### Clone Repository
+Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/Stroke-Detection.git
-cd Stroke-Detection
+git clone https://github.com/Bipulkumar28/Early-Stroke-Detection-Using-CNN-and-MediaPipe.git
 ```
 
-### Install Python Dependencies
+Move into the project
 
 ```bash
-pip install flask flask-cors opencv-python mediapipe pandas numpy
+cd Early-Stroke-Detection-Using-CNN-and-MediaPipe
 ```
 
-### Install Dashboard Dependencies
+Install dependencies
 
 ```bash
-cd dashboard
-npm install
+pip install -r requirements.txt
 ```
 
----
-
-## ▶️ Running the Project
-
-### Start Backend
-
-```bash
-python backend.py
-```
-
-Backend runs on:
-
-```text
-http://127.0.0.1:5000/live
-```
-
-### Start Stroke Detection
+Run the application
 
 ```bash
 python stroke_detector.py
 ```
 
-### Start Dashboard
+---
 
-```bash
-cd dashboard
-npm start
-```
+## Dataset
+
+The CNN model was trained on a dataset containing facial images categorized into:
+
+- Stroke
+- No Stroke
+
+The dataset is **not included** in this repository due to size and licensing considerations.
 
 ---
 
-## 📈 Current Status
+## Results
 
-✅ Face Detection
+The application provides:
 
-✅ Pose Detection
-
-✅ Facial Landmark Analysis
-
-✅ Stroke Risk Estimation
-
-✅ Live Dashboard
-
-✅ Backend API Integration
-
-✅ CSV & JSON Report Generation
+- Rule-Based Stroke Risk
+- CNN Stroke Probability
+- Final Hybrid Stroke Risk
+- Live Feature Visualization
+- Alert Notifications
+- Session Reports
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
-- Improved stroke risk model
-- Better facial feature analysis
-- Historical analytics dashboard
-- Cloud database integration
-- Mobile application
+- Mobile application integration
+- Emergency contact notification
+- Cloud-based prediction API
 - Wearable sensor integration
-- Emergency notification system
+- Speech analysis
+- Eye gaze analysis
+- Temporal CNN prediction smoothing
 
 ---
 
-## 📄 License
+## Author
 
-This project is intended for educational and research purposes.
+**Bipul Kumar**
+
+Computer Science Engineering (AI & ML)
+
+Sahyadri College of Engineering & Management
+
+---
+
+## License
+
+This project is developed for academic and research purposes.
