@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 from tensorflow.keras.models import load_model
-=======
->>>>>>> e35f9031df6c9a9bfa4d0bfefc9a2e10a91e0643
 
 import cv2
 import numpy as np
@@ -69,7 +66,6 @@ SMOOTH_WIN   = 12         # secondary rolling window size
 #   Face paresis: 54.6% → split over 4 facial features
 #   Arm paresis:  75.5% → allocated 35%
 W = {
-<<<<<<< HEAD
     "mouth": 12,
     "eye": 6,
     "tilt": 6,
@@ -78,17 +74,6 @@ W = {
     "rigid": 3,
     "arm": 30,
 }
-=======
-    "mouth": 15,
-    "eye": 8,
-    "tilt": 8,
-    "brow": 5,
-    "cheek": 5,
-    "rigid": 4,
-    "arm": 40,
-}
-
->>>>>>> e35f9031df6c9a9bfa4d0bfefc9a2e10a91e0643
 # --- Feature Thresholds ---
 TH = {
     "mouth":  0.030,
@@ -136,10 +121,6 @@ WR_L, WR_R   = 15, 16
 # ══════════════════════════════════════════════════════════════════════════════
 
 FEATURE_KEYS = list(W.keys())
-<<<<<<< HEAD
-=======
-
->>>>>>> e35f9031df6c9a9bfa4d0bfefc9a2e10a91e0643
 class DualSmooth:
     """
     Two-pass smoother: EMA first, then rolling mean.
@@ -742,11 +723,8 @@ def save_snapshot(frame, risk, raw, smoothed, feat_scores, alert_tracker, sess_s
 
 def main():
     ensure_models()
-<<<<<<< HEAD
     cnn_model = load_model("model.h5")
     print("[INFO] CNN model loaded successfully.")
-=======
->>>>>>> e35f9031df6c9a9bfa4d0bfefc9a2e10a91e0643
 
     print("=" * 60)
     print("  Real-Time Stroke Detection System  v2.0")
@@ -808,12 +786,8 @@ def main():
 
     # ── Peak risk tracker for session stats ───────────────────────────────────
     peak_risk = 0
-<<<<<<< HEAD
     cnn_label = "Waiting..."
     cnn_prob = 0.0
-=======
-
->>>>>>> e35f9031df6c9a9bfa4d0bfefc9a2e10a91e0643
     try:
         while True:
             ret, frame = cap.read()
@@ -833,7 +807,6 @@ def main():
 
             if face_ok:
                 lm = face_res.face_landmarks[0]
-<<<<<<< HEAD
                 # ================= CNN FACE CROP =================
 
                 x_coords = [p.x for p in lm]
@@ -887,8 +860,6 @@ def main():
                         cnn_label = "No Stroke"
 
 # ============================================
-=======
->>>>>>> e35f9031df6c9a9bfa4d0bfefc9a2e10a91e0643
 
                 head_angle = feat_tilt(lm)
 
@@ -899,10 +870,6 @@ def main():
                         0.6,
                         (0, 0, 255),
                         2)
-<<<<<<< HEAD
-=======
-
->>>>>>> e35f9031df6c9a9bfa4d0bfefc9a2e10a91e0643
                     cv2.imshow("Stroke Detection System v2.0", frame)
 
                     key = cv2.waitKey(1) & 0xFF
@@ -940,7 +907,6 @@ def main():
                 smooth.update(k, v)
             smoothed = smooth.get_all()
 
-<<<<<<< HEAD
 # -------------------------------------------------
 # Rule-Based Risk
 # -------------------------------------------------
@@ -978,15 +944,10 @@ def main():
 # -------------------------------------------------
 # Smooth sudden changes
 # -------------------------------------------------
-=======
-            # ── Risk score ────────────────────────────────────────────────────
-            risk, feat_scores = compute_risk(smoothed)
->>>>>>> e35f9031df6c9a9bfa4d0bfefc9a2e10a91e0643
 
             if frame_idx == 0:
                 previous_risk = risk
 
-<<<<<<< HEAD
 # Limit sudden increase
             if risk > previous_risk + 20:
                 risk = previous_risk + 5
@@ -995,11 +956,6 @@ def main():
             elif risk < previous_risk - 20:
                 risk = previous_risk - 5
 
-=======
-            if risk > previous_risk + 20:
-                risk = previous_risk + 5
-
->>>>>>> e35f9031df6c9a9bfa4d0bfefc9a2e10a91e0643
             previous_risk = risk
             peak_risk = max(peak_risk, risk)
             trend.push(risk)
@@ -1046,7 +1002,6 @@ def main():
                      fps, alert_tr, trend,
                      sess_start, face_ok, last_pose is not None,
                      cal, frame_idx)
-<<<<<<< HEAD
             cv2.putText(
                 frame,
                 f"Rule Risk: {rule_risk}%",
@@ -1073,8 +1028,6 @@ def main():
                 0.7,
                 (0, 0, 255),
                 2)
-=======
->>>>>>> e35f9031df6c9a9bfa4d0bfefc9a2e10a91e0643
 
             cv2.imshow("Stroke Detection System v2.0", frame)
 
